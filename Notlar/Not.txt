@@ -1,13 +1,25 @@
-DJango
+DJango:
 django-admin
 
-Virtual Environment
+Virtual Environment:
 python -m venv venv
+pip install django
 venv\Scripts\activate
 
+Sunucuyu çalıştırma:
+python manage.py runserver
+
 Proje oluşturma:
-1- django-admin startproject backend .
-2- django-admin startapp backend
+1- django-admin startproject router_project .
+2- django-admin startapp pagesApp   (App)
+
+1- startproject (Ana Çatı)    ---> Genelde sonuna "project" veya "pro" eklenir ya da direkt projenin genel adı verilir.
+Örnek: dizi_izleme_project, film_sitesi, backend_main   
+Görevi: Bu senin ana klasöründür; ayarlar (settings.py) ve ana yönlendirmeler (urls.py) burada durur. Binanın yönetimi gibidir.
+
+2- startapp (İş Yapan Modül)  ---> Bunun sonuna genelde "app" eklenir veya sadece yaptığı işin adı verilir.
+Örnek: diziler_app, uyelik_app, odeme_sistemi.
+Görevi Bu asıl kodun yazıldığı, modellerin ve sayfaların olduğu yerdir. Binadaki daireler veya bölümler gibidir.
 ================================================================================================================================================================================================================
 ================================================================================================================================================================================================================
 Açıklama:
@@ -19,8 +31,31 @@ backend       ---> Oluşturulacak projenin / klasörün adı.
 framework yöneticisi proje başlatma işlemi klasör adı.
 ================================================================================================================================================================================================================
 ================================================================================================================================================================================================================
-Sunucuyu çalıştırma:
-python manage.py runserver
-================================================================================================================================================================================================================
-================================================================================================================================================================================================================
 
+================================================================================================================================================================================================================
+================================================================================================================================================================================================================
+ÖNEMLİ NOTLAR:
+
+--> 'templates' klasörünü pagesApp(App olan) klasörünün içine oluşturmalısın.
+
+Neden?
+Django'da her uygulamanın (app) kendi içinde bağımsız olması istenir. 
+Yani sen yarın bu pagesApp klasörünü kopyalayıp başka bir projeye taşıdığında, içindeki HTML dosyaları da onunla birlikte tıkır tıkır gelmeli.
+Buna "taşınabilirlik" (reusability) denir.
+
+--> Daha sonra 'project' settings.py'den 'INSTALLED_APPS' tanımlıyoruz app'imizi kullanabilmek için.
+'INSTALLED_APPS' içine eklemeni de yaptın. Artık Django, pagesApp klasörünün içine bakması gerektiğini biliyor.
+
+--> 'View' Fonksiyonunu Oluşturma
+Kullanıcı bir adrese girdiğinde hangi işlemin yapılacağını ve hangi dosyanın açılacağını belirleyen "memur"dur. pagesApp/views.py dosyasına yazılır.
+
+--> 'URL' (Adres) Tanımlama
+Yazdığın bu View fonksiyonuna hangi internet adresi üzerinden ulaşılacağını belirleriz. Proje klasöründeki urls.py (ana santral) dosyasına gidilir.
+
+--> Neden 'name' (Takma İsim) Kullanmalıyız?
+path('adres/', views.fonksiyon, name='takma_ad') yapısındaki name parametresi şu işe yarar:
+
+Adres Değişikliği Özgürlüğü: Yarın bir gün urls.py içindeki adresi (URL) değiştirsen bile, HTML sayfalarındaki linkleri tek tek düzeltmek zorunda kalmazsın.
+Merkezi Kontrol: Sen adresi güncellersin, Django o "takma isimle" bağlı olan tüm linkleri otomatik olarak günceller.
+Hata Payını Azaltır: HTML içinde karmaşık adres yollarını ezberlemek yerine, belirlediğin kısa ve anlamlı isimleri (anasayfa, iletisim gibi) kullanmanı sağlar.
+Özet: Adres (URL) değişse bile 'name' değişmediği sürece sitendeki hiçbir link bozulmaz!

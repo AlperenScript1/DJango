@@ -1,0 +1,10 @@
+Dersler diziapp notları:
+
+/PROJE_ANA_KLASORU
+├── diziler/            <-- SENİN APP BURASI (Kodlar burada)
+│   ├── migrations/
+│   ├── templates/      <-- BURAYI SEN OLUŞTURACAKSIN
+│   ├── views.py
+│   └── ...
+├── diziapp/            <-- ANA AYARLAR BURADA (settings.py, urls.py)
+├── manage.py
