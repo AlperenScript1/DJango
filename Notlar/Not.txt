@@ -47,7 +47,7 @@ Buna "taşınabilirlik" (reusability) denir.
 'INSTALLED_APPS' içine eklemeni de yaptın. Artık Django, pagesApp klasörünün içine bakması gerektiğini biliyor.
 
 --> 'View' Fonksiyonunu Oluşturma
-Kullanıcı bir adrese girdiğinde hangi işlemin yapılacağını ve hangi dosyanın açılacağını belirleyen "memur"dur. pagesApp/views.py dosyasına yazılır.
+Kullanıcı bir adrese girdiğinde hangi işlemin yapılacağını ve hangi dosyanın açılacağını belirleyendir. pagesApp/views.py dosyasına yazılır.
 
 --> 'URL' (Adres) Tanımlama
 Yazdığın bu View fonksiyonuna hangi internet adresi üzerinden ulaşılacağını belirleriz. Proje klasöründeki urls.py (ana santral) dosyasına gidilir.
